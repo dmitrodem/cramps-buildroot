@@ -57,3 +57,6 @@ Session.vim
 *~
 # Auto-generated tag files
 tags
+
+# markdown
+.markdown-preview.html
