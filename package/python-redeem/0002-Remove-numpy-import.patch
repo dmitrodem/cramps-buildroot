@@ -1,0 +1,39 @@
+From 9d53deff86ba9c37f0734525cb4dfc7c2ffcec2d Mon Sep 17 00:00:00 2001
+From: Dmitriy Dyomin <dmitrodem@gmail.com>
+Date: Sun, 18 Mar 2018 03:29:10 +0300
+Subject: [PATCH 2/2] Remove numpy import
+
+---
+ setup.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 0e5ed3b..ea15e00 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,5 +1,4 @@
+ from setuptools import setup, find_packages, Extension
+-import numpy as np
+ import os
+ 
+ from distutils.sysconfig import get_config_vars
+@@ -27,6 +26,7 @@ INSTALL_REQUIRES = [
+     "numpy",
+ ]
+ 
++numpy_dir = os.environ['_python_sysroot'] + "/usr/lib/python2.7/site-packages/numpy/core/include"
+ 
+ pathplanner = Extension(
+     '_PathPlannerNative', sources = [
+@@ -41,7 +41,7 @@ pathplanner = Extension(
+         'redeem/path_planner/prussdrv.c',
+         'redeem/path_planner/Logger.cpp'],
+     swig_opts=['-c++','-builtin'],
+-    include_dirs = [np.get_include()],
++    include_dirs = [numpy_dir],
+     extra_compile_args = [
+         '-std=c++0x',
+         '-g',
+-- 
+2.16.1
+
