@@ -1,2 +1,3 @@
 source "$BR2_EXTERNAL_CRAMPS_PATH/package/python-adafruit_bbio/Config.in"
+source "$BR2_EXTERNAL_CRAMPS_PATH/package/python-evdev/Config.in"
 source "$BR2_EXTERNAL_CRAMPS_PATH/package/python-redeem/Config.in"
